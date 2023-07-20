@@ -31,5 +31,8 @@ public class Seat extends AbstractEntity {
     @Column(name = "seat_type")
     private SeatType seatType;
 
+    @ManyToOne
+    @JoinColumn(name = "layout_id")
+    private Layout layout;
 
 }
