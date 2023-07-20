@@ -1,3 +1,4 @@
+import com.loconav.event.management.entity.Event;
 package com.loconav.event.management.service;
 
 import com.loconav.event.management.entity.Event;

@@ -12,11 +12,11 @@ public class UserService {
 //    @Autowired
 //    private UserRepository userRepository;
 
-//    @Autowired
-//    private UserMapper userMapper;
-//
-//    public UserResponse create(UserRequest userRequest) {
-//        return userMapper.userToUserResponse(userRepository.save(userMapper.userRequestToUser(userRequest)));
-//    }
+    @Autowireda
+    private UserMapper userMapper;
+
+    public UserResponse create(UserRequest userRequest) {
+        return userMapper.userToUserResponse(userRepository.save(userMapper.userRequestToUser(userRequest)));
+    }
 
 }
