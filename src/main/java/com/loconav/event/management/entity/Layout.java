@@ -26,5 +26,9 @@ public class Layout extends AbstractEntity {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "layout")
-    List<Show> shows;
+    private List<Show> shows;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "layout")
+    private List<Seat> seats;
 }

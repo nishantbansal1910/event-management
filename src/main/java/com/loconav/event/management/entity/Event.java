@@ -36,10 +36,10 @@ public class Event extends AbstractEntity {
     @Column(name = "duration", nullable = false)
     private Long duration;
 
-    @Column(name = "rating", columnDefinition = "decimal(3,1) default 0.00")
+    @Column(name = "rating")
     private Float rating;
 
-    @Column(name = "no_of_user_rated", columnDefinition = "default 0")
+    @Column(name = "no_of_user_rated")
     private Long noOfUserRated;
 
     @JsonManagedReference
