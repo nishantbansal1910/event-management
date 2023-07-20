@@ -11,13 +11,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class SeatService {
 
-    @Autowired
-    private SeatRepository seatRepository;
+//    @Autowired
+//    private SeatRepository seatRepository;
 
-    @Autowired
-    private SeatMapper seatMapper;
-
-    public SeatsResponse create(SeatsRequest seatsRequest) {
-        return seatMapper.seatToSeatResponse(seatRepository.save(seatMapper.seatRequestToSeat(seatsRequest)));
-    }
+//    @Autowired
+//    private SeatMapper seatMapper;
+//
+//    public SeatsResponse create(SeatsRequest seatsRequest) {
+//        return seatMapper.seatToSeatResponse(seatRepository.save(seatMapper.seatRequestToSeat(seatsRequest)));
+//    }
 }

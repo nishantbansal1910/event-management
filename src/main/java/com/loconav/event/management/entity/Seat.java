@@ -11,6 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "seats", uniqueConstraints = {
@@ -19,7 +20,7 @@ import javax.persistence.*;
 public class Seat extends AbstractEntity {
 
     @Column(name = "row", nullable = false)
-    private int row;
+    private Character row;
 
     @Column(name = "col", nullable = false)
     private int col;

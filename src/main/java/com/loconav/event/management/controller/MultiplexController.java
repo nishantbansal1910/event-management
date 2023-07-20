@@ -19,15 +19,15 @@ import java.util.List;
 public class MultiplexController {
     @Autowired
     public MultiplexService multiplexService;
-    @PostMapping("")
-    public ListMultiplexesResponse multiplex(@Valid @RequestBody ListMultiplexesRequest listMultiplexesRequest)
-    {
-        return multiplexService.create(listMultiplexesRequest);
-    }
+//    @PostMapping("")
+//    public ListMultiplexesResponse multiplex(@Valid @RequestBody ListMultiplexesRequest listMultiplexesRequest)
+////    {
+//////        return multiplexService.create(listMultiplexesRequest);
+////    }
 
-    @GetMapping("/list")
-    public List<ListMultiplexesResponse> listAll(@RequestParam (name = "city",required = false)final String city)
-    {
-        return multiplexService.list(city);
-    }
+//    @GetMapping("/list")
+//    public List<ListMultiplexesResponse> listAll(@RequestParam (name = "city",required = false)final String city)
+//    {
+//        return multiplexService.list(city);
+//    }
 }

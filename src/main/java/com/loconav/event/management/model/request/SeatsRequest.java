@@ -2,6 +2,7 @@ package com.loconav.event.management.model.request;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.loconav.event.management.enums.SeatType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,11 +22,9 @@ public class SeatsRequest {
     @NotNull
     private Integer col;
     @NotNull
-    private Integer price;
-    @NotNull
-    private Double rating;
+    private Float rating;
     @NotBlank
-    private String seatType;
+    private SeatType seatType;
     @NotNull
     private Long layoutId;
 }

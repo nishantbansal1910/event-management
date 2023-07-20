@@ -2,6 +2,8 @@ package com.loconav.event.management.model.response;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.loconav.event.management.enums.EventType;
+import com.loconav.event.management.enums.Language;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,12 +15,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class ListEventResponse {
-    private Integer eventId;
-    private String eventName;
-    private String language;
+    private Long id;
+    private String name;
+    private Language language;
     private String host;
     private Long duration;
-    private Double rating;
+    private Float rating;
     private Long numberOfUsersRated;
-    private String type;
+    private EventType eventType;
 }

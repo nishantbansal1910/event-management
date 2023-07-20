@@ -19,7 +19,7 @@ import java.util.List;
 @Table(name = "events")
 public class Event extends AbstractEntity {
 
-    @Column(name = "name", unique = true, nullable = false)
+    @Column(name = "name")
     private String name;
 
     @Enumerated(value = EnumType.STRING)

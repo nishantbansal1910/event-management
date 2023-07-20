@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+//    @Autowired
+//    private UserRepository userRepository;
 
-    @Autowired
-    private UserMapper userMapper;
-
-    public UserResponse create(UserRequest userRequest) {
-        return userMapper.userToUserResponse(userRepository.save(userMapper.userRequestToUser(userRequest)));
-    }
+//    @Autowired
+//    private UserMapper userMapper;
+//
+//    public UserResponse create(UserRequest userRequest) {
+//        return userMapper.userToUserResponse(userRepository.save(userMapper.userRequestToUser(userRequest)));
+//    }
 
 }

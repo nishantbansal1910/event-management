@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class ShowService {
 
-    @Autowired
-    private ShowRepository showRepository;
+//    @Autowired
+//    private ShowRepository showRepository;
 
-    @Autowired
-    private ShowMapper showMapper;
-
-    public ListShowResponse create(ListShowRequest listShowRequest) {
-        return showMapper.showToShowResponse(showRepository.save(showMapper.listShowRequestToShow(listShowRequest)));
-    }
+//    @Autowired
+//    private ShowMapper showMapper;
+//
+//    public ListShowResponse create(ListShowRequest listShowRequest) {
+//        return showMapper.showToShowResponse(showRepository.save(showMapper.listShowRequestToShow(listShowRequest)));
+//    }
 }

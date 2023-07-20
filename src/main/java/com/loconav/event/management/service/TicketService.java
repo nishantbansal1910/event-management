@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class TicketService {
 
-    @Autowired
-    private TicketRepository ticketRepository;
+//    @Autowired
+//    private TicketRepository ticketRepository;
 
-    @Autowired
-    private TicketMapper ticketMapper;
+//    @Autowired
+//    private TicketMapper ticketMapper;
 }

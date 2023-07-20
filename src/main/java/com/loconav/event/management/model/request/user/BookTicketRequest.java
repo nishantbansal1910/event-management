@@ -18,4 +18,6 @@ import java.util.List;
 public class BookTicketRequest {
     @NotNull
     private List<Integer> seatId;
+    private String paymentMethod;
+    private Long userId;
 }

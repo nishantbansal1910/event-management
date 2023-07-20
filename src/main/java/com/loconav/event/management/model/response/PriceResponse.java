@@ -15,5 +15,5 @@ import lombok.NoArgsConstructor;
 public class PriceResponse {
     private Long showId;
     private Long seatId;
-    private Long price;
+    private Integer price;
 }

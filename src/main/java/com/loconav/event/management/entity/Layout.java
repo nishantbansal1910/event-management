@@ -21,7 +21,7 @@ public class Layout extends AbstractEntity {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "multiplex_id", nullable = false)
+    @JoinColumn(name = "multiplex_id")
     private Multiplex multiplex;
 
     @JsonManagedReference
