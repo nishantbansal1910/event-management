@@ -1,5 +1,4 @@
 package com.loconav.event.management.controller;
 
-public class ShowController {
-
+public class PriceController {
 }
