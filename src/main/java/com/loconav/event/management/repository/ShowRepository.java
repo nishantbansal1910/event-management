@@ -8,11 +8,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ShowRepository {
+public interface ShowRepository extends JpaRepository<Show,Long> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM shows")
     List<Show> fetch();
 
     @Query(nativeQuery = true, value = "SELECT * FROM shows where event_id = :eventId && start_time >= :showTime")
     List<Show> fetchByEventAndTime(Long eventId, Long showTime);
+
 }

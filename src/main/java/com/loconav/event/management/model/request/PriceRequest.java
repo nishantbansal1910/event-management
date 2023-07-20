@@ -20,5 +20,5 @@ public class PriceRequest {
     @NotNull
     private Long seatId;
     @NotNull
-    private Long price;
+    private Integer price;
 }

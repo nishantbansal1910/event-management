@@ -2,9 +2,10 @@ package com.loconav.event.management.repository;
 
 import com.loconav.event.management.entity.Event;
 import com.loconav.event.management.entity.Multiplex;
+import com.loconav.event.management.entity.Price;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
 
 import java.util.List;
 

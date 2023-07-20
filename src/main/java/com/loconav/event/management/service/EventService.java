@@ -1,11 +1,12 @@
 import com.loconav.event.management.entity.Event;
 package com.loconav.event.management.service;
 
+import com.loconav.event.management.entity.Event;
 import com.loconav.event.management.mapper.EventMapper;
 import com.loconav.event.management.model.request.ListEventRequest;
 import com.loconav.event.management.model.request.user.EventRequest;
 import com.loconav.event.management.model.response.ListEventResponse;
-import com.loconav.event.management.model.response.user.EventsResponse;
+import com.loconav.event.management.model.response.ListEventResponse;
 import com.loconav.event.management.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,9 @@ public class EventService {
     private EventMapper eventMapper;
 
     public ListEventResponse create(ListEventRequest listEventRequest) {
-        return eventMapper.eventToEventResponse(eventRepository.save(eventMapper.eventRequestToEvent(listEventRequest)));
+//        System.out.println(listEventRequest);
+        Event event = eventMapper.eventRequestToEvent(listEventRequest);
+        System.out.println(event);
+        return eventMapper.eventToEventResponse(eventRepository.save(event));
     }
-
 }

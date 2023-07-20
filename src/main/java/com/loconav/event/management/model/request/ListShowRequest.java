@@ -2,6 +2,7 @@ package com.loconav.event.management.model.request;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.loconav.event.management.enums.ShowFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,5 +24,5 @@ public class ListShowRequest {
     @NotNull
     private Long layoutId;
     @NotBlank
-    private String showFormat;
+    private ShowFormat showFormat;
 }

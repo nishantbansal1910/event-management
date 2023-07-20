@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SeatRepository {
+public interface SeatRepository extends JpaRepository<Seat,Long> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM seats")
     List<Seat> fetch();

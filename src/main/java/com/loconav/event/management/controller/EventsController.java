@@ -4,7 +4,7 @@ import com.loconav.event.management.enums.Language;
 import com.loconav.event.management.enums.ShowFormat;
 import com.loconav.event.management.model.request.ListEventRequest;
 import com.loconav.event.management.model.request.user.EventRequest;
-import com.loconav.event.management.model.request.user.EventsRequest;
+import com.loconav.event.management.model.request.ListEventRequest;
 import com.loconav.event.management.model.response.ListEventResponse;
 import com.loconav.event.management.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,18 +23,21 @@ public class EventsController {
     @Autowired
     public EventService eventService;
     @PostMapping("")
-    public ListEventResponse events(@Valid @RequestBody ListEventRequest listEventRequest)
+    public ListEventResponse events(@RequestBody ListEventRequest listEventRequest)
     {
+        System.out.println("REQUEST SENT:");
+        System.out.println(listEventRequest);
         return eventService.create(listEventRequest);
+
     }
 
-    @GetMapping("/list")
-    public ListEventResponse listAll(@RequestParam(name = "location",required = false)final String location,
-                                     @RequestParam(name = "language",required = false)final Language language,
-                                     @RequestParam(name = "show_format",required = false)final ShowFormat showFormat){
-        EventRequest eventRequest=
-                EventRequest.builder().location(location).language(language).showFormat(showFormat).build();
-        return EventService.list(eventRequest);
-    }
+//    @GetMapping("/list")
+//    public ListEventResponse listAll(@RequestParam(name = "location",required = false)final String location,
+//                                     @RequestParam(name = "language",required = false)final Language language,
+//                                     @RequestParam(name = "show_format",required = false)final ShowFormat showFormat){
+//        EventRequest eventRequest=
+//                EventRequest.builder().location(location).language(language).showFormat(showFormat).build();
+//        return EventService.list(eventRequest);
+//    }
 
 }

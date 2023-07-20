@@ -2,6 +2,7 @@ package com.loconav.event.management.model.response;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.loconav.event.management.enums.ShowFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +17,5 @@ public class ListShowResponse {
     private Long startTime;
     private Long eventId;
     private Long layoutId;
-    private String showFormat;
+    private ShowFormat showFormat;
 }
