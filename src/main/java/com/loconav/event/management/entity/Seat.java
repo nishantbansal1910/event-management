@@ -24,7 +24,7 @@ public class Seat extends AbstractEntity {
     @Column(name = "col", nullable = false)
     private int col;
 
-    @Column(name = "rating", columnDefinition = "decimal(3,1) default 00.0")
+    @Column(name = "rating")
     private Float rating;
 
     @Enumerated(value = EnumType.STRING)
