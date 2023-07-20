@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class ShowsAvailableRequest {
-    private Integer eventId;
+    private Long eventId;
     private Long ShowTime;
 }
