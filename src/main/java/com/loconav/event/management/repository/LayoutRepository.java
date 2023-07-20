@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LayoutRepository extends JpaRepository<Multiplex, Long> {
+public interface LayoutRepository extends JpaRepository<Layout, Long> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM layouts")
     List<Layout> fetch();
