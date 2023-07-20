@@ -2,6 +2,8 @@ package com.loconav.event.management.controller;
 
 import com.loconav.event.management.model.request.ListMultiplexesRequest;
 import com.loconav.event.management.model.response.ListMultiplexesResponse;
+import com.loconav.event.management.service.MultiplexService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,15 +17,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/multilexes")
 public class MultiplexController {
+    @Autowired
+    public MultiplexService multiplexService;
     @PostMapping("")
     public ListMultiplexesResponse multiplex(@Valid @RequestBody ListMultiplexesRequest listMultiplexesRequest)
     {
-        return MultiplexService.create(listMultiplexesRequest);
+        return multiplexService.create(listMultiplexesRequest);
     }
 
     @GetMapping("/list")
     public List<ListMultiplexesResponse> listAll(@RequestParam (name = "city",required = false)final String city)
     {
-        return MultiplexService.list(city);
+        return multiplexService.list(city);
     }
 }
