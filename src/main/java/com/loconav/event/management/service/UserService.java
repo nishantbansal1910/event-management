@@ -12,7 +12,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
+    @Autowireda
     private UserMapper userMapper;
 
     public UserResponse create(UserRequest userRequest) {
