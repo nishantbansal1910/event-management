@@ -13,7 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tickets")
-public class Ticket extends AbstractEntity {
+public class
+Ticket extends AbstractEntity {
 
     @Column(name = "time_stamp", nullable = false)
     private Long timeStamp;

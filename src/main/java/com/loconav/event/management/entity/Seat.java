@@ -35,5 +35,4 @@ public class Seat extends AbstractEntity {
     @JoinColumn(name = "layout_id")
     private Layout layout;
 
-
 }

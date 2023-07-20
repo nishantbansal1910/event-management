@@ -19,4 +19,5 @@ public interface MultiplexesRepository extends JpaRepository<Multiplex, Long> {
             "join shows s on s.layout_id = l.id" +
             "join events e.id = s.event_id ")
     List<Multiplex> fetchByEvent(Long eventId);
+
 }

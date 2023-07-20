@@ -1,7 +1,7 @@
-//package com.loconav.event.management.service;
-//
-//import com.loconav.event.management.model.request.ListEventRequest;
 import com.loconav.event.management.entity.Event;
+package com.loconav.event.management.service;
+
+import com.loconav.event.management.mapper.EventMapper;
 import com.loconav.event.management.model.request.ListEventRequest;
 import com.loconav.event.management.model.request.user.EventRequest;
 import com.loconav.event.management.model.response.ListEventResponse;
@@ -19,7 +19,7 @@ public class EventService {
     @Autowired
     private EventMapper eventMapper;
 
-    public EventsResponse create(ListEventRequest listEventRequest) {
+    public ListEventResponse create(ListEventRequest listEventRequest) {
         return eventMapper.eventToEventResponse(eventRepository.save(eventMapper.eventRequestToEvent(listEventRequest)));
     }
 
