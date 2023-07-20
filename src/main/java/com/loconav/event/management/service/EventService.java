@@ -1,11 +1,8 @@
-import com.loconav.event.management.entity.Event;
 package com.loconav.event.management.service;
 
 import com.loconav.event.management.entity.Event;
 import com.loconav.event.management.mapper.EventMapper;
 import com.loconav.event.management.model.request.ListEventRequest;
-import com.loconav.event.management.model.request.user.EventRequest;
-import com.loconav.event.management.model.response.ListEventResponse;
 import com.loconav.event.management.model.response.ListEventResponse;
 import com.loconav.event.management.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;

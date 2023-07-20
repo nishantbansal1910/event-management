@@ -15,15 +15,15 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/multilexes")
+@RequestMapping("/api/v1/multiplexes")
 public class MultiplexController {
     @Autowired
     public MultiplexService multiplexService;
-//    @PostMapping("")
-//    public ListMultiplexesResponse multiplex(@Valid @RequestBody ListMultiplexesRequest listMultiplexesRequest)
-////    {
-//////        return multiplexService.create(listMultiplexesRequest);
-////    }
+    @PostMapping("")
+    public ListMultiplexesResponse multiplex(@Valid @RequestBody ListMultiplexesRequest listMultiplexesRequest)
+    {
+        return multiplexService.create(listMultiplexesRequest);
+    }
 
 //    @GetMapping("/list")
 //    public List<ListMultiplexesResponse> listAll(@RequestParam (name = "city",required = false)final String city)

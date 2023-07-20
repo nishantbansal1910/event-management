@@ -20,8 +20,10 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/v1/events")
 public class EventsController {
+
     @Autowired
-    public EventService eventService;
+    private EventService eventService;
+
     @PostMapping("")
     public ListEventResponse events(@RequestBody ListEventRequest listEventRequest)
     {
