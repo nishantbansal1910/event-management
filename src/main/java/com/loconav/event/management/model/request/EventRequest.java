@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class ListEventRequest {
+public class EventRequest {
     @NotBlank
     private String eventName;
     @NotBlank

@@ -2,7 +2,7 @@ package com.loconav.event.management.controller;
 
 import com.loconav.event.management.enums.Language;
 import com.loconav.event.management.enums.ShowFormat;
-import com.loconav.event.management.model.request.ListEventRequest;
+import com.loconav.event.management.model.request.EventRequest;
 import com.loconav.event.management.model.request.user.EventsRequest;
 import com.loconav.event.management.model.response.ListEventResponse;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +18,9 @@ import javax.validation.Valid;
 @RequestMapping("/api/v1/events")
 public class EventsController {
     @PostMapping("")
-    public ListEventResponse events(@Valid @RequestBody ListEventRequest listEventRequest)
+    public ListEventResponse events(@Valid @RequestBody EventRequest eventRequest)
     {
-        return EventService.create(listEventRequest);
+        return EventService.create(eventRequest);
     }
 
     @GetMapping("/list")
