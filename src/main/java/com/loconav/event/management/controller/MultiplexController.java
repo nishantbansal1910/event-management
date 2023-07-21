@@ -32,9 +32,14 @@ public class MultiplexController {
         return multiplexService.fetchByEvent(eventId);
     }
 
+    @GetMapping("")
+    public List<ListMultiplexesResponse> fetchAll() {
+        return multiplexService.fetchALl();
+    }
+
 //    @GetMapping("/list")
 //    public List<ListMultiplexesResponse> listAll(@RequestParam (name = "city",required = false)final String city)
 //    {
-//        return multiplexService.list(city);
+//        return multiplexService.(city);
 //    }
 }

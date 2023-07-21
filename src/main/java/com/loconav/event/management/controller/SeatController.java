@@ -25,6 +25,4 @@ public class SeatController {
         return seatService.fetchAvailableSeats(showId);
     }
 
-
-
 }
