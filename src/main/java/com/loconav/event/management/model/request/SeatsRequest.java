@@ -17,13 +17,13 @@ import javax.validation.constraints.NotNull;
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class SeatsRequest {
-    @NotBlank
-    private Character row;
+
+    private Integer row;
     @NotNull
     private Integer col;
     @NotNull
     private Float rating;
-    @NotBlank
+
     private SeatType seatType;
     @NotNull
     private Long layoutId;

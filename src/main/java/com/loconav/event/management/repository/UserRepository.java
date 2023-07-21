@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query(nativeQuery = true, value = "SELECT * FROM users")
-    List<User> fetch();
+    @Query(nativeQuery = true, value = "SELECT * FROM users where :id is null or id=:id")
+    List<User> fetch(Integer id);
 
 }

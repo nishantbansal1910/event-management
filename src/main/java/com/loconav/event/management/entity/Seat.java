@@ -20,7 +20,7 @@ import javax.persistence.*;
 public class Seat extends AbstractEntity {
 
     @Column(name = "row", nullable = false)
-    private Character row;
+    private int row;
 
     @Column(name = "col", nullable = false)
     private int col;

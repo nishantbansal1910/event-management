@@ -16,11 +16,11 @@ import javax.validation.Valid;
 public class SeatController {
     @Autowired
     public SeatService seatService;
-//    @PostMapping("")
-//    public SeatsResponse seats(@Valid @RequestBody SeatsRequest seatsRequest)
-//    {
-//        return seatService.create(seatsRequest);
-//    }
+    @PostMapping("")
+    public SeatsResponse seats(@Valid @RequestBody SeatsRequest seatsRequest)
+    {
+        return seatService.create(seatsRequest);
+    }
 
 
 

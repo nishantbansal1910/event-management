@@ -17,6 +17,7 @@ public class ShowService {
     private ShowMapper showMapper;
 
     public ListShowResponse create(ListShowRequest listShowRequest) {
+        System.out.println(listShowRequest.getShowFormat());
         return showMapper.showToShowResponse(showRepository.save(showMapper.showRequestToShow(listShowRequest)));
     }
 }

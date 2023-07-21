@@ -26,5 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/list")
-    List<UserResponse> listAll(@RequestParam (name = "id", =false))
+    List<UserResponse> listAll(@RequestParam (name = "id", required = false)final Integer id){
+        return userService.list(id);
+    }
 }

@@ -7,6 +7,8 @@ import com.loconav.event.management.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -18,6 +20,10 @@ public class UserService {
 
     public UserResponse create(UserRequest userRequest) {
         return userMapper.userToUserResponse(userRepository.save(userMapper.userRequestToUser(userRequest)));
+    }
+
+    public List<UserResponse> list(Integer id){
+        return userMapper.userToList(userRepository.fetch(id));
     }
 
 }
