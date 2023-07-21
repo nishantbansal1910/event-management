@@ -32,15 +32,20 @@ public class EventService {
     }
 
 
-    public List<ListEventResponse> list(EventRequest eventRequest){
-        return eventMapper.eventListToEventResponseList(eventRepository.fetchFilter(eventRequest.getLocation(),
-                eventRequest.getLanguage(),eventRequest.getShowFormat()));
+    public List<ListEventResponse> fetchByLanguageOrLaunchTime(EventRequest eventRequest) {
+//        System.out.println();
+        if(eventRequest.getLanguage() == null)  {
+            return eventMapper.eventListToEventResponseList(eventRepository.fetchByLanguageOrLaunchTime(eventRequest.getLaunchTime(),
+                    null));
+        }
+        return eventMapper.eventListToEventResponseList(eventRepository.fetchByLanguageOrLaunchTime(eventRequest.getLaunchTime(),
+                eventRequest.getLanguage().name()));
+    }
   
     //Method to get event with filters in EventRequest POJO
-    public List<ListEventResponse> fetchByLocationAndTmeAndShowFormat(EventRequest eventRequest) {
-        return eventRepository.fetchByLocationAndTmeAndShowFormat(eventRequest.getLocation(),
-                eventRequest.getLanguage().toString(), eventRequest.getShowFormat().toString()).
-                stream().map(event -> eventMapper.eventToEventResponse(event)).collect(Collectors.toList());
+//    public List<ListEventResponse> fetchByLanguageOrLaunchTime(EventRequest eventRequest) {
+//            return eventRepository.fetchByLanguageOrLaunchTime().
+//                    stream().map(event -> eventMapper.eventToEventResponse(event)).collect(Collectors.toList());
+//        }
 
-    }
 }

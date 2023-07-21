@@ -1,9 +1,7 @@
-package com.loconav.event.management.model.request.user;
+package com.loconav.event.management.model.response.user;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.loconav.event.management.enums.Language;
-import com.loconav.event.management.enums.ShowFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,9 +12,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class EventRequest {
-    private Long launchTime;
+public class MultiplexByEventResponse {
+    private Long id;
 
-    private Language language;
+    private String name;
 
+    private String address;
+
+    private String city;
+
+    private String eventName;
 }

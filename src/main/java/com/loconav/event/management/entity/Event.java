@@ -22,6 +22,9 @@ public class Event extends AbstractEntity {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "launch_time")
+    private Long launchTime;
+
     @Enumerated(value = EnumType.STRING)
     @Column(name = "event_type")
     private EventType eventType;

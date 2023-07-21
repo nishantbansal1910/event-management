@@ -15,14 +15,12 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     @Query(nativeQuery = true, value = "SELECT * from events")
     List<Event> fetch();
 
-    @Query(nativeQuery = true, value = "SELECT * FROM events WHERE" +
-            "(:location is NULL OR location = :location) AND " +
-            "(:language is NULL OR :language = language ) AND " +
-            "(:showFormat is NULL OR :showFormat = showFormat)")
+    @Query(nativeQuery = true, value = "SELECT * FROM events where " +
+            "(:launchTime is NULL OR :launchTime <= launch_time) AND " +
+            "(:language is NULL OR :language = language)")
+    List<Event> fetchByLanguageOrLaunchTime(Long launchTime, String language);
 
-    List<Event> fetchFilter(String location, Language language, ShowFormat showFormat);
-
-    List<Event> fetchByLocationAndTmeAndShowFormat(String location, String language, String showFormat);
+//    List<Event> fetchByLocationAndTmeAndShowFormat(String location, String language, String showFormat);
 
 
 }
