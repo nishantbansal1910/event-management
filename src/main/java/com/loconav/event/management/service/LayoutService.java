@@ -7,6 +7,9 @@ import com.loconav.event.management.repository.LayoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class LayoutService {
 
@@ -19,5 +22,9 @@ public class LayoutService {
     public ListLayoutResponse create(ListLayoutRequest listLayoutRequest) {
 //        System.out.println();
         return layoutMapper.layoutToLayoutResponse(layoutRepository.save(layoutMapper.layoutRequestToLayout(listLayoutRequest)));
+    }
+
+    public List<ListLayoutResponse> fetchAll() {
+        return layoutRepository.fetch().stream().map(layout -> layoutMapper.layoutToLayoutResponse(layout)).collect(Collectors.toList());
     }
 }

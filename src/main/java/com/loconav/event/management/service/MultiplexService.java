@@ -5,6 +5,7 @@ import com.loconav.event.management.mapper.MultiplexMapper;
 import com.loconav.event.management.model.request.ListMultiplexesRequest;
 import com.loconav.event.management.model.response.ListMultiplexesResponse;
 import com.loconav.event.management.model.response.user.MultiplexByEventResponse;
+import com.loconav.event.management.model.response.user.MultiplexResponse;
 import com.loconav.event.management.repository.EventRepository;
 import com.loconav.event.management.repository.MultiplexesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,9 @@ public class MultiplexService {
             multiplexByEventResponse.setEventName(eventName);
         }
         return multiplexesByEventResponse;
+    }
+
+    public List<ListMultiplexesResponse> fetchALl() {
+        return multiplexMapper.multiplexListToMultiplexResponseList(multiplexesRepository.fetch());
     }
 }
