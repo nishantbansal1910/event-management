@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+
 import java.util.stream.Collectors;
+
 
 @Service
 public class EventService {
@@ -29,10 +31,16 @@ public class EventService {
         return eventMapper.eventToEventResponse(eventRepository.save(event));
     }
 
+
+    public List<ListEventResponse> list(EventRequest eventRequest){
+        return eventMapper.eventListToEventResponseList(eventRepository.fetchFilter(eventRequest.getLocation(),
+                eventRequest.getLanguage(),eventRequest.getShowFormat()));
+  
     //Method to get event with filters in EventRequest POJO
     public List<ListEventResponse> fetchByLocationAndTmeAndShowFormat(EventRequest eventRequest) {
         return eventRepository.fetchByLocationAndTmeAndShowFormat(eventRequest.getLocation(),
                 eventRequest.getLanguage().toString(), eventRequest.getShowFormat().toString()).
                 stream().map(event -> eventMapper.eventToEventResponse(event)).collect(Collectors.toList());
+
     }
 }

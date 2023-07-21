@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/events")
@@ -33,13 +34,13 @@ public class EventsController {
 
     }
 
-//    @GetMapping("/list")
-//    public ListEventResponse listAll(@RequestParam(name = "location",required = false)final String location,
-//                                     @RequestParam(name = "language",required = false)final Language language,
-//                                     @RequestParam(name = "show_format",required = false)final ShowFormat showFormat){
-//        EventRequest eventRequest=
-//                EventRequest.builder().location(location).language(language).showFormat(showFormat).build();
-//        return EventService.list(eventRequest);
-//    }
+    @GetMapping("/list")
+    public List<ListEventResponse> listAll(@RequestParam(name = "location",required = false)final String location,
+                                           @RequestParam(name = "language",required = false)final Language language,
+                                           @RequestParam(name = "show_format",required = false)final ShowFormat showFormat){
+        EventRequest eventRequest=
+                EventRequest.builder().location(location).language(language).showFormat(showFormat).build();
+        return eventService.list(eventRequest);
+    }
 
 }

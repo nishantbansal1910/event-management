@@ -19,6 +19,7 @@ public class SeatService {
     private SeatMapper seatMapper;
 
     public SeatsResponse create(SeatsRequest seatsRequest) {
+        System.out.println(seatsRequest.getSeatType());
         return seatMapper.seatToSeatResponse(seatRepository.save(seatMapper.seatRequestToSeat(seatsRequest)));
     }
 }

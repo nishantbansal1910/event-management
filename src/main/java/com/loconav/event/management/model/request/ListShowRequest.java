@@ -23,6 +23,6 @@ public class ListShowRequest {
     private Long eventId;
     @NotNull
     private Long layoutId;
-    @NotBlank
+
     private ShowFormat showFormat;
 }

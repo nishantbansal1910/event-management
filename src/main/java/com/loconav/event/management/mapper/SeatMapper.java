@@ -16,11 +16,12 @@ public class SeatMapper {
     public Seat seatRequestToSeat(SeatsRequest seatsRequest) {
         Layout layout = layoutRepository.findById(seatsRequest.getLayoutId()).get();
         return Seat.builder().layout(layout).seatType(seatsRequest.getSeatType())
-                .rating(seatsRequest.getRating()).row(seatsRequest.getRow()).col(seatsRequest.getCol()).build();
+                .rating(seatsRequest.getRating()).row(seatsRequest.getRow())
+                .col(seatsRequest.getCol()).build();
     }
 
-    public SeatsResponse seatToSeatResponse(Seat seat)
-    {
-        return SeatsResponse.builder().layoutId(seat.getLayout().getId()).seatId(seat.getId()).col(seat.getCol()).row(seat.getRow()).build();
+    public SeatsResponse seatToSeatResponse(Seat seat) {
+        return SeatsResponse.builder().layoutId(seat.getLayout().getId()).seatId(seat.getId())
+                .col(seat.getCol()).row(seat.getRow()).seatType(seat.getSeatType()).rating(seat.getRating()).build();
     }
 }

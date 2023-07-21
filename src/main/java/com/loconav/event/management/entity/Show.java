@@ -22,6 +22,7 @@ public class Show extends AbstractEntity {
     private Long startTime;
 
     @Column(name = "show_format")
+    @Enumerated(value = EnumType.STRING)
     private ShowFormat showFormat;
 
     @ManyToOne

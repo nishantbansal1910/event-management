@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class SeatsResponse {
     private Long seatId;
-    private Character row;
+    private Integer row;
     private Integer col;
 //    private Integer price;
     private Float rating;
