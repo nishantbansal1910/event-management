@@ -35,12 +35,11 @@ public class EventsController {
     }
 
     @GetMapping("/list")
-    public List<ListEventResponse> listAll(@RequestParam(name = "location",required = false)final String location,
-                                           @RequestParam(name = "language",required = false)final Language language,
-                                           @RequestParam(name = "show_format",required = false)final ShowFormat showFormat){
+    public List<ListEventResponse> listAll(@RequestParam(name = "language",required = false)final Language language,
+                                           @RequestParam(name = "launch_time",required = false)final Long launchTime){
         EventRequest eventRequest=
-                EventRequest.builder().location(location).language(language).showFormat(showFormat).build();
-        return eventService.list(eventRequest);
+                EventRequest.builder().language(language).launchTime(launchTime).build();
+        return eventService.fetchByLanguageOrLaunchTime(eventRequest);
     }
 
 }

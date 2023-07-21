@@ -23,6 +23,9 @@ public class TicketSeat extends AbstractEntity {
     @Column(name = "price", nullable = false)
     private Integer price;
 
+    @Column(name = "status", nullable = false)
+    private String status;
+
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "ticket_id", nullable = false)

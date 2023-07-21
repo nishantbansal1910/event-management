@@ -12,4 +12,9 @@ public interface SeatRepository extends JpaRepository<Seat,Long> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM seats")
     List<Seat> fetch();
+
+    @Query(nativeQuery = true, value = "SELECT s.* from seats s " +
+            "left join ticket_seat ts on ts.seat_id = s.id " +
+            "WHERE (:showId is NULL OR ts.show_id = :showId) AND (ts.seat_id is NULL OR ts.status = 'cancelled')")
+    List<Seat> fetchAvailableTickets(Long showId);
 }

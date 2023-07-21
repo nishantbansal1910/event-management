@@ -20,10 +20,10 @@ import javax.persistence.*;
 public class Seat extends AbstractEntity {
 
     @Column(name = "row", nullable = false)
-    private int row;
+    private Integer row;
 
     @Column(name = "col", nullable = false)
-    private int col;
+    private Integer col;
 
     @Column(name = "rating")
     private Float rating;

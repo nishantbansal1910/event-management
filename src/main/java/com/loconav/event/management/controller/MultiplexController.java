@@ -2,6 +2,7 @@ package com.loconav.event.management.controller;
 
 import com.loconav.event.management.model.request.ListMultiplexesRequest;
 import com.loconav.event.management.model.response.ListMultiplexesResponse;
+import com.loconav.event.management.model.response.user.MultiplexByEventResponse;
 import com.loconav.event.management.service.MultiplexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,12 @@ public class MultiplexController {
     public ListMultiplexesResponse multiplex(@Valid @RequestBody ListMultiplexesRequest listMultiplexesRequest)
     {
         return multiplexService.create(listMultiplexesRequest);
+    }
+
+    @GetMapping("/list")
+    public List<MultiplexByEventResponse> fetchByEvent(@RequestParam(name = "event_id", required = false)
+                                                      Long eventId) {
+        return multiplexService.fetchByEvent(eventId);
     }
 
 //    @GetMapping("/list")
