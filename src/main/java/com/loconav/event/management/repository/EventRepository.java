@@ -19,6 +19,10 @@ public interface EventRepository extends JpaRepository<Event, Long> {
             "(:location is NULL OR location = :location) AND " +
             "(:language is NULL OR :language = language ) AND " +
             "(:showFormat is NULL OR :showFormat = showFormat)")
+
     List<Event> fetchFilter(String location, Language language, ShowFormat showFormat);
+
+    List<Event> fetchByLocationAndTmeAndShowFormat(String location, String language, String showFormat);
+
 
 }

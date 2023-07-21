@@ -17,6 +17,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/v1/shows")
 public class ShowController {
+
     @Autowired
     public ShowService showService;
     @PostMapping("")
@@ -24,4 +25,5 @@ public class ShowController {
     {
         return showService.create(listShowRequest);
     }
+
 }
