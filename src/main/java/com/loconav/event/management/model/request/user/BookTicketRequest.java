@@ -3,6 +3,7 @@ package com.loconav.event.management.model.request.user;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.loconav.event.management.enums.PaymentMethod;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +19,6 @@ import java.util.List;
 public class BookTicketRequest {
     @NotNull
     private List<Integer> seatId;
-    private String paymentMethod;
+    private PaymentMethod paymentMethod;
     private Long userId;
 }

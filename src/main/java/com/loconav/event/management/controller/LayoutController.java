@@ -1,11 +1,8 @@
 package com.loconav.event.management.controller;
 
-import com.loconav.event.management.model.request.ListLayoutRequest;
-import com.loconav.event.management.model.request.ListMultiplexesRequest;
-import com.loconav.event.management.model.response.ListLayoutResponse;
-import com.loconav.event.management.model.response.ListMultiplexesResponse;
+import com.loconav.event.management.model.request.CreateLayoutRequest;
+import com.loconav.event.management.model.response.CreateLayoutResponse;
 import com.loconav.event.management.service.LayoutService;
-import com.loconav.event.management.service.MultiplexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,15 +14,15 @@ import java.util.List;
 public class LayoutController {
     @Autowired
     public LayoutService layoutService;
+
     @PostMapping("")
-    public ListLayoutResponse layout(@Valid @RequestBody
-                                             ListLayoutRequest listLayoutRequest)
-    {
-        return layoutService.create(listLayoutRequest);
+    public CreateLayoutResponse create(@Valid @RequestBody
+                                     CreateLayoutRequest createLayoutRequest) {
+        return layoutService.create(createLayoutRequest);
     }
 
     @GetMapping("")
-    public List<ListLayoutResponse> fetchAll() {
+    public List<CreateLayoutResponse> fetch() {
         return layoutService.fetchAll();
     }
 }

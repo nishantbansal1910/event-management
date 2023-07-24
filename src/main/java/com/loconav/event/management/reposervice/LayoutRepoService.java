@@ -13,8 +13,9 @@ import java.util.Optional;
 public class LayoutRepoService {
     @Autowired
     public MultiplexesRepository multiplexesRepository;
+
     @Named(value = "findMultiplex")
-    public Optional<Multiplex> getMultiplex(Long multiplexId) {
-        return multiplexesRepository.findById(multiplexId);
+    public Multiplex getMultiplex(Long multiplexId) {
+        return multiplexesRepository.findById(multiplexId).get();
     }
 }

@@ -1,10 +1,7 @@
 package com.loconav.event.management.service;
 
-import com.loconav.event.management.entity.Seat;
 import com.loconav.event.management.mapper.SeatMapper;
-import com.loconav.event.management.model.request.ListShowRequest;
 import com.loconav.event.management.model.request.SeatsRequest;
-import com.loconav.event.management.model.response.ListShowResponse;
 import com.loconav.event.management.model.response.SeatsResponse;
 import com.loconav.event.management.repository.SeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;

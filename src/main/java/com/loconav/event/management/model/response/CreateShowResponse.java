@@ -1,4 +1,4 @@
-package com.loconav.event.management.model.request;
+package com.loconav.event.management.model.response;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -8,21 +8,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class ListShowRequest {
-    @NotNull
+public class CreateShowResponse {
     private Long startTime;
-    @NotNull
     private Long eventId;
-    @NotNull
     private Long layoutId;
-
     private ShowFormat showFormat;
 }

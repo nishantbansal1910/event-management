@@ -1,9 +1,9 @@
 package com.loconav.event.management.service;
 
 import com.loconav.event.management.mapper.ShowMapper;
-import com.loconav.event.management.model.request.ListShowRequest;
+import com.loconav.event.management.model.request.CreateShowRequest;
 import com.loconav.event.management.model.request.user.ShowsAvailableRequest;
-import com.loconav.event.management.model.response.ListShowResponse;
+import com.loconav.event.management.model.response.CreateShowResponse;
 import com.loconav.event.management.repository.ShowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,13 +20,13 @@ public class ShowService {
     @Autowired
     private ShowMapper showMapper;
 
-    public ListShowResponse create(ListShowRequest listShowRequest) {
-        System.out.println(listShowRequest.getShowFormat());
-        return showMapper.showToShowResponse(showRepository.save(showMapper.showRequestToShow(listShowRequest)));
+    public CreateShowResponse create(CreateShowRequest createShowRequest) {
+        System.out.println(createShowRequest.getShowFormat());
+        return showMapper.showToShowResponse(showRepository.save(showMapper.showRequestToShow(createShowRequest)));
     }
 
     //Filter show response according to event and time as in ShowsAvailableRequest POJO
-    public List<ListShowResponse> fetchByEventAndShowTime(ShowsAvailableRequest showsAvailableRequest) {
+    public List<CreateShowResponse> fetchByEventAndShowTime(ShowsAvailableRequest showsAvailableRequest) {
         return showRepository.fetchByEventAndTime(showsAvailableRequest.getEventId(), showsAvailableRequest.getShowTime())
                 .stream().map(show -> showMapper.showToShowResponse(show)).collect(Collectors.toList());
     }
