@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class ListLayoutResponse {
+public class CreateLayoutResponse {
     private Long id;
     private String name;
     private Long multiplexId;

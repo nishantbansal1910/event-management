@@ -1,4 +1,4 @@
-package com.loconav.event.management.model.response;
+package com.loconav.event.management.model.request;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -7,14 +7,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class ListMultiplexesResponse {
-    private Long id;
+public class CreateLayoutRequest {
+    @NotBlank
     private String name;
-    private String address;
-    private String city;
+    @NotNull
+    private Long multiplexId;
 }

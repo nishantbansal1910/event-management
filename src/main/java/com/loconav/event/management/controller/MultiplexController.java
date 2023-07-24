@@ -1,7 +1,7 @@
 package com.loconav.event.management.controller;
 
-import com.loconav.event.management.model.request.ListMultiplexesRequest;
-import com.loconav.event.management.model.response.ListMultiplexesResponse;
+import com.loconav.event.management.model.request.CreateMultiplexesRequest;
+import com.loconav.event.management.model.response.CreateMultiplexesResponse;
 import com.loconav.event.management.model.response.user.MultiplexByEventResponse;
 import com.loconav.event.management.service.MultiplexService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,25 +21,14 @@ public class MultiplexController {
     @Autowired
     public MultiplexService multiplexService;
     @PostMapping("")
-    public ListMultiplexesResponse multiplex(@Valid @RequestBody ListMultiplexesRequest listMultiplexesRequest)
+    public CreateMultiplexesResponse create(@Valid @RequestBody CreateMultiplexesRequest createMultiplexesRequest)
     {
-        return multiplexService.create(listMultiplexesRequest);
+        return multiplexService.create(createMultiplexesRequest);
     }
 
     @GetMapping("/list")
-    public List<MultiplexByEventResponse> fetchByEvent(@RequestParam(name = "event_id", required = false)
+    public List<MultiplexByEventResponse> fetch(@RequestParam(name = "event_id", required = false)
                                                       Long eventId) {
         return multiplexService.fetchByEvent(eventId);
     }
-
-    @GetMapping("")
-    public List<ListMultiplexesResponse> fetchAll() {
-        return multiplexService.fetchALl();
-    }
-
-//    @GetMapping("/list")
-//    public List<ListMultiplexesResponse> listAll(@RequestParam (name = "city",required = false)final String city)
-//    {
-//        return multiplexService.(city);
-//    }
 }

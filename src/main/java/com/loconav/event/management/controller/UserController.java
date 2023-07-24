@@ -21,12 +21,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("")
-    UserResponse users(@Valid @RequestBody UserRequest userRequest){
+    UserResponse create(@Valid @RequestBody UserRequest userRequest) {
         return userService.create(userRequest);
     }
 
     @GetMapping("/list")
-    List<UserResponse> listAll(@RequestParam (name = "id", required = false)final Integer id){
+    List<UserResponse> fetch(@RequestParam(name = "id", required = false) final Integer id) {
         return userService.list(id);
     }
 }

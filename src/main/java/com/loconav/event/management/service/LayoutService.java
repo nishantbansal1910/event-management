@@ -1,8 +1,8 @@
 package com.loconav.event.management.service;
 
 import com.loconav.event.management.mapper.LayoutMapper;
-import com.loconav.event.management.model.request.ListLayoutRequest;
-import com.loconav.event.management.model.response.ListLayoutResponse;
+import com.loconav.event.management.model.request.CreateLayoutRequest;
+import com.loconav.event.management.model.response.CreateLayoutResponse;
 import com.loconav.event.management.repository.LayoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,12 +19,11 @@ public class LayoutService {
     @Autowired
     private LayoutMapper layoutMapper;
 
-    public ListLayoutResponse create(ListLayoutRequest listLayoutRequest) {
-//        System.out.println();
-        return layoutMapper.layoutToLayoutResponse(layoutRepository.save(layoutMapper.layoutRequestToLayout(listLayoutRequest)));
+    public CreateLayoutResponse create(CreateLayoutRequest createLayoutRequest) {
+        return layoutMapper.layoutToLayoutResponse(layoutRepository.save(layoutMapper.layoutRequestToLayout(createLayoutRequest)));
     }
 
-    public List<ListLayoutResponse> fetchAll() {
+    public List<CreateLayoutResponse> fetchAll() {
         return layoutRepository.fetch().stream().map(layout -> layoutMapper.layoutToLayoutResponse(layout)).collect(Collectors.toList());
     }
 }

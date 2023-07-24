@@ -2,17 +2,15 @@ package com.loconav.event.management.service;
 
 import com.loconav.event.management.entity.Event;
 import com.loconav.event.management.mapper.EventMapper;
-import com.loconav.event.management.model.request.ListEventRequest;
+import com.loconav.event.management.model.request.CreateEventRequest;
 import com.loconav.event.management.model.request.user.EventRequest;
-import com.loconav.event.management.model.response.ListEventResponse;
+import com.loconav.event.management.model.response.CreateEventResponse;
 import com.loconav.event.management.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 import java.util.List;
-
-import java.util.stream.Collectors;
 
 
 @Service
@@ -24,15 +22,15 @@ public class EventService {
     @Autowired
     private EventMapper eventMapper;
 
-    public ListEventResponse create(ListEventRequest listEventRequest) {
+    public CreateEventResponse create(CreateEventRequest createEventRequest) {
 //        System.out.println(listEventRequest);
-        Event event = eventMapper.eventRequestToEvent(listEventRequest);
+        Event event = eventMapper.eventRequestToEvent(createEventRequest);
         System.out.println(event);
         return eventMapper.eventToEventResponse(eventRepository.save(event));
     }
 
 
-    public List<ListEventResponse> fetchByLanguageOrLaunchTime(EventRequest eventRequest) {
+    public List<CreateEventResponse> fetchByLanguageOrLaunchTime(EventRequest eventRequest) {
 //        System.out.println();
         if(eventRequest.getLanguage() == null)  {
             return eventMapper.eventListToEventResponseList(eventRepository.fetchByLanguageOrLaunchTime(eventRequest.getLaunchTime(),

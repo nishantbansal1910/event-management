@@ -8,16 +8,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class ListLayoutRequest {
+public class CreateMultiplexesRequest {
     @NotBlank
     private String name;
-    @NotNull
-    private Long multiplexId;
+    @NotBlank
+    private String address;
+    @NotBlank
+    private String city;
 }

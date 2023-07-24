@@ -15,13 +15,13 @@ public class SeatController {
     @Autowired
     public SeatService seatService;
     @PostMapping("")
-    public SeatsResponse seats(@Valid @RequestBody SeatsRequest seatsRequest)
+    public SeatsResponse create(@Valid @RequestBody SeatsRequest seatsRequest)
     {
         return seatService.create(seatsRequest);
     }
 
     @GetMapping("/list")
-    public List<SeatsResponse> fetchAvailableSeats(@RequestParam(name = "show_id", required = false) Long showId) {
+    public List<SeatsResponse> fetch(@RequestParam(name = "show_id", required = false) Long showId) {
         return seatService.fetchAvailableSeats(showId);
     }
 

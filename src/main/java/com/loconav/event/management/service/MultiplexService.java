@@ -2,10 +2,9 @@ package com.loconav.event.management.service;
 
 import com.loconav.event.management.entity.Multiplex;
 import com.loconav.event.management.mapper.MultiplexMapper;
-import com.loconav.event.management.model.request.ListMultiplexesRequest;
-import com.loconav.event.management.model.response.ListMultiplexesResponse;
+import com.loconav.event.management.model.request.CreateMultiplexesRequest;
+import com.loconav.event.management.model.response.CreateMultiplexesResponse;
 import com.loconav.event.management.model.response.user.MultiplexByEventResponse;
-import com.loconav.event.management.model.response.user.MultiplexResponse;
 import com.loconav.event.management.repository.EventRepository;
 import com.loconav.event.management.repository.MultiplexesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +25,8 @@ public class MultiplexService {
     @Autowired
     private MultiplexMapper multiplexMapper;
 
-    public ListMultiplexesResponse create(ListMultiplexesRequest listMultiplexesRequest) {
-        return multiplexMapper.multiplexToMultiplexResponse(multiplexesRepository.save(multiplexMapper.multiplexRequestToMultiplex(listMultiplexesRequest)));
+    public CreateMultiplexesResponse create(CreateMultiplexesRequest createMultiplexesRequest) {
+        return multiplexMapper.multiplexToMultiplexResponse(multiplexesRepository.save(multiplexMapper.multiplexRequestToMultiplex(createMultiplexesRequest)));
     }
 
     public List<MultiplexByEventResponse> fetchByEvent(Long eventId) {
@@ -43,7 +42,7 @@ public class MultiplexService {
         return multiplexesByEventResponse;
     }
 
-    public List<ListMultiplexesResponse> fetchALl() {
+    public List<CreateMultiplexesResponse> fetchALl() {
         return multiplexMapper.multiplexListToMultiplexResponseList(multiplexesRepository.fetch());
     }
 }
