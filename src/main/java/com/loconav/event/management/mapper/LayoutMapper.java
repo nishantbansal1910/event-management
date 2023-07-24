@@ -4,12 +4,13 @@ import com.loconav.event.management.entity.Layout;
 import com.loconav.event.management.model.request.CreateLayoutRequest;
 import com.loconav.event.management.model.response.CreateLayoutResponse;
 import com.loconav.event.management.reposervice.LayoutRepoService;
+import com.loconav.event.management.reposervice.MultiplexRepoService;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE,componentModel = "spring", uses = {LayoutRepoService.class})
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE,componentModel = "spring", uses = {MultiplexRepoService.class})
 public interface LayoutMapper {
 
     LayoutMapper INSTANCE= Mappers.getMapper(LayoutMapper.class);

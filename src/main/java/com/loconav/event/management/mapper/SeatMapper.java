@@ -4,24 +4,24 @@ import com.loconav.event.management.entity.Layout;
 import com.loconav.event.management.entity.Seat;
 import com.loconav.event.management.model.request.SeatsRequest;
 import com.loconav.event.management.model.response.SeatsResponse;
+import com.loconav.event.management.reposervice.LayoutRepoService;
+import com.loconav.event.management.reposervice.PriceRepoService;
 import com.loconav.event.management.repository.LayoutRepository;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.ReportingPolicy;
+import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
-public class SeatMapper {
-    @Autowired
-    LayoutRepository layoutRepository;
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE,componentModel = "spring", uses = {LayoutRepoService.class})
+public interface SeatMapper {
 
-    public Seat seatRequestToSeat(SeatsRequest seatsRequest) {
-        Layout layout = layoutRepository.findById(seatsRequest.getLayoutId()).get();
-        return Seat.builder().layout(layout).seatType(seatsRequest.getSeatType())
-                .rating(seatsRequest.getRating()).row(seatsRequest.getRow())
-                .col(seatsRequest.getCol()).build();
-    }
+    SeatMapper INSTANCE = Mappers.getMapper(SeatMapper.class);
 
-    public SeatsResponse seatToSeatResponse(Seat seat) {
-        return SeatsResponse.builder().layoutId(seat.getLayout().getId()).seatId(seat.getId())
-                .col(seat.getCol()).row(seat.getRow()).seatType(seat.getSeatType()).rating(seat.getRating()).build();
-    }
+    @Mapping(target = "layout", source = "layoutId", qualifiedByName = "findLayout")
+    Seat seatRequestToSeat(SeatsRequest seatsRequest);
+
+    @Mapping(target = "layoutId", expression = "java(seat.getLayout().getId()")
+    SeatsResponse seatToSeatResponse(Seat seat);
 }

@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +19,11 @@ import java.util.List;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class BookTicketRequest {
     @NotNull
-    private List<Integer> seatId;
+    private List<Integer> seatIds;
+
+    private Long showId;
+
     private PaymentMethod paymentMethod;
+
     private Long userId;
 }
