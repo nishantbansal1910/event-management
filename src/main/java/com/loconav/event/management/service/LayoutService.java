@@ -20,7 +20,6 @@ public class LayoutService {
     private LayoutMapper layoutMapper;
 
     public CreateLayoutResponse create(CreateLayoutRequest createLayoutRequest) {
-//        System.out.println();
         return layoutMapper.layoutToLayoutResponse(layoutRepository.save(layoutMapper.layoutRequestToLayout(createLayoutRequest)));
     }
 
